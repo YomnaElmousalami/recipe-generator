@@ -10,7 +10,7 @@ p {
   font-size: 30px;
 }
 
-img {
+.image {
   max-width: 140px;
   vertical-align: middle;
 }
@@ -19,4 +19,12 @@ body{
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: lightblue;
+}
+
+* {
+  padding: 0;
+}
+
+.logo img {
+  max-width: 100px; 
 }
