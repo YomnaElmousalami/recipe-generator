@@ -11,11 +11,12 @@ p {
 }
 
 img {
-  max-width: 100px;
+  max-width: 140px;
   vertical-align: middle;
 }
 
 body{
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: lightblue;
 }
