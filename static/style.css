@@ -33,3 +33,18 @@ body{
   max-width: 100px; 
 }
 
+.send_logo img{
+  max-width: 40px;
+}
+
+.chatbot{
+  background: white;
+  width: 700px;
+  height: 700px;
+  transform: translateX(30px);
+  font-size: 20px;
+}
+
+.chatbot .chatbox{
+  height: 630px;
+}
