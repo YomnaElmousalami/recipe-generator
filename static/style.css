@@ -58,3 +58,13 @@ body{
   align-items: center;
   transform: translate(-15px, -20px);
 }
+
+.entry_text{
+  background-color: #bed9e4;
+  padding: 20px; 
+  border-radius: 15px 15px 15px 0px;
+}
+
+.chatbox .entry_message img{
+  display: inline;
+}
