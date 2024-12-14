@@ -70,7 +70,12 @@ body{
 }
 
 .chatbox .begin_chat p{
-  background-color: #bed9e4;
+  background-color: #e9def7;
   float: right;
   justify-content: flex-end;
+  padding: 15px;
+  border-radius: 15px 15px 0px 15px;
+  max-width: 60%;
+  margin: 1px 0;
+  line-height: normal;
 }
