@@ -68,3 +68,9 @@ body{
 .chatbox .entry_message img{
   display: inline;
 }
+
+.chatbox .begin_chat p{
+  background-color: #bed9e4;
+  float: right;
+  justify-content: flex-end;
+}
