@@ -79,11 +79,14 @@ body{
 .input textarea{
   outline: 5px;
   outline-color: #dedbdf;
-  transform: translateX(250px);
-  padding: 30px;
+  transform: translate(100px, -50px);
+  padding: 20px 150px 20px 150px;
+  position: absolute;
+  overflow: auto;
+  border-radius: 15px;
 }
 
 .input .send_logo img{
   max-width: 40px;
-  transform: translateX(250px);
+  transform: translate(600px, -20px);
 }
