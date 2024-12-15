@@ -4,6 +4,7 @@ const chatbox = document.querySelector(".chatbox");
 
 let userMessage;
 
+//this function creates a list item element and adds it based on the html tag
 const inputListener = (message, class_name) =>{
     const chatListener = document.createElement("li");
     chatListener.classList.add(class_name);
@@ -20,12 +21,16 @@ const inputListener = (message, class_name) =>{
 
 const handle_chatbot = () => {
     userMessage = input.value.trim();
+
+    //when user does not enter a valid message in chatbox, it displays an  alert message
     if(!userMessage)
     {
         alert('Please enter a valid message!');
         return;
     }
 
+    //when the user enters a message, the inputListener will be run and whatever is returned
+    //gets appended to the chatbox
     chatbox.appendChild(inputListener(userMessage, "begin_chat"));
 
     setTimeout(() => {
@@ -33,4 +38,5 @@ const handle_chatbot = () => {
     }, 600);
 }
 
+//when the send button is clicked, handle_chatbot function will be run
 send_button.addEventListener("click", handle_chatbot);
