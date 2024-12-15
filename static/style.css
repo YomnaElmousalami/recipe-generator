@@ -33,17 +33,13 @@ body{
   max-width: 100px; 
 }
 
-.send_logo img{
-  max-width: 40px;
-}
-
 .chatbot{
   background: white;
   width: 700px;
   height: 700px;
   transform: translateX(80px);
   font-size: 20px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .chatbot .chatbox{
@@ -78,4 +74,16 @@ body{
   max-width: 60%;
   margin: 1px 0;
   line-height: normal;
+}
+
+.input textarea{
+  outline: 5px;
+  outline-color: #dedbdf;
+  transform: translateX(250px);
+  padding: 30px;
+}
+
+.input .send_logo img{
+  max-width: 40px;
+  transform: translateX(250px);
 }
