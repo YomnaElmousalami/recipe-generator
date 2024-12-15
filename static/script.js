@@ -11,7 +11,7 @@ const inputListener = (message, class_name) =>{
 
     //before colon: appends user message 
     //after colon: generates bot's response
-    
+
     let content = class_name === "begin_chat" ? `<p>${message}</p>` :  
     `<span id = "query" class = "logo"> 
     <p class = "entry_message"> 
@@ -21,6 +21,10 @@ const inputListener = (message, class_name) =>{
    </span>`;
     chatListener.innerHTML = content;
     return chatListener;
+}
+
+const generateResponse = () =>{
+    
 }
 
 const handle_chatbot = () => {
@@ -40,6 +44,7 @@ const handle_chatbot = () => {
     //the AI bot will display "Thinking" before generating message
     setTimeout(() => {
         chatbox.appendChild(inputListener("Thinking...", "automatic_message"));
+        generateResponse();
     }, 600);
 }
 
