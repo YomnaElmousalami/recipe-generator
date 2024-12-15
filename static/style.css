@@ -78,7 +78,7 @@ body{
 
 .input textarea{
   width: 400px;
-  height: 50px;
+  height: 60px;
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -87,7 +87,7 @@ body{
   font-size: 16px;
   resize: none;
   position: absolute;
-  transform: translate(120px, -20px);
+  transform: translate(120px, -25px);
 }
 
 .input .send_logo img{
