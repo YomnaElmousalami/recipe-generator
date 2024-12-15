@@ -8,6 +8,10 @@ let userMessage;
 const inputListener = (message, class_name) =>{
     const chatListener = document.createElement("li");
     chatListener.classList.add(class_name);
+
+    //before colon: appends user message 
+    //after colon: generates bot's response
+    
     let content = class_name === "begin_chat" ? `<p>${message}</p>` :  
     `<span id = "query" class = "logo"> 
     <p class = "entry_message"> 
@@ -33,6 +37,7 @@ const handle_chatbot = () => {
     //gets appended to the chatbox
     chatbox.appendChild(inputListener(userMessage, "begin_chat"));
 
+    //the AI bot will display "Thinking" before generating message
     setTimeout(() => {
         chatbox.appendChild(inputListener("Thinking...", "automatic_message"));
     }, 600);
