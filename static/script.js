@@ -23,7 +23,7 @@ const inputListener = (message, class_name) =>{
     return chatListener;
 }
 
-const generateResponse = () =>{
+const generateMessage = () =>{
     
 }
 
@@ -44,7 +44,7 @@ const handle_chatbot = () => {
     //the AI bot will display "Thinking" before generating message
     setTimeout(() => {
         chatbox.appendChild(inputListener("Thinking...", "automatic_message"));
-        generateResponse();
+        generateMessage();
     }, 600);
 }
 
