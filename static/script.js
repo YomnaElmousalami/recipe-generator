@@ -23,8 +23,18 @@ const inputListener = (message, class_name) =>{
     return chatListener;
 }
 
-const generateMessage = () =>{
+const generateMessage = async (thinking) =>{
+    const responseElement = thinking.querySelector("p");
+
+    const response = await fetch({
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: userMessage }),
+    });
     
+    responseElement.textContent = await response.json();
 }
 
 const handle_chatbot = () => {
@@ -43,8 +53,9 @@ const handle_chatbot = () => {
 
     //the AI bot will display "Thinking" before generating message
     setTimeout(() => {
-        chatbox.appendChild(inputListener("Thinking...", "automatic_message"));
-        generateMessage();
+        const thinking = inputListener("Thinking...", "automatic_message");
+        chatbox.appendChild(thinking);
+        generateMessage(thinking);
     }, 600);
 }
 
