@@ -55,6 +55,7 @@ const generateMessage = async (thinking) =>{
 
 const handle_chatbot = () => {
     userMessage = input.value.trim();
+    input.value = '';
 
     //when user does not enter a valid message in chatbox, it displays an  alert message
     if(!userMessage)
