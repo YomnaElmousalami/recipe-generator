@@ -104,5 +104,8 @@ body{
   background-color: white;
   height: 700px;
   width: 1000px;
-  transform: translate(850px, -705px);
+  transform: translate(850px, -700px);
+  font-size: 30px;
+  overflow: auto;
+  position: absolute;
 }
