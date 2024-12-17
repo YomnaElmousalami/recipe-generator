@@ -70,7 +70,7 @@ send_button.addEventListener("click", handle_chatbot);
 
 document.getElementById("enter").addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
-        
+        event.preventDefault();
         document.getElementById("send").click();
     }
 });

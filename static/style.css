@@ -19,6 +19,7 @@ body{
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: lightblue;
+  overflow-y: auto;
 }
 
 * {
@@ -36,10 +37,10 @@ body{
 .chatbot{
   background: white;
   width: 700px;
-  height: 700px;
+  height: auto;
   transform: translateX(80px);
   font-size: 20px;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .chatbot .chatbox{
@@ -96,4 +97,12 @@ body{
 .input .send_logo img{
   max-width: 40px;
   transform: translate(540px, -15px);
+}
+
+.recipe_text
+{
+  background-color: white;
+  height: 700px;
+  width: 1000px;
+  transform: translate(850px, -705px);
 }
