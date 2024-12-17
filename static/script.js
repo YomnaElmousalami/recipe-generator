@@ -57,7 +57,7 @@ const handle_chatbot = () => {
         const thinking = inputListener("Thinking...", "automatic_message");
         chatbox.appendChild(thinking);
         generateMessage(thinking);
-    }, 600);
+    }, 200);
 }
 
 //when the send button is clicked, handle_chatbot function will be run
