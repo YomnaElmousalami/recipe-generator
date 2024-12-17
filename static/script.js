@@ -24,7 +24,12 @@ const inputListener = (message, class_name) =>{
     return chatListener;
 }
 
+let full = false;
 const generateMessage = async (thinking) =>{
+    if (full)
+    {
+        outputText.querySelector("p").remove();
+    }
     const newText = document.createElement("p");
     const responseElement = thinking.querySelector("p.entry_message span.entry_text");
     const response = await fetch("/generateText", {
@@ -45,6 +50,7 @@ const generateMessage = async (thinking) =>{
     responseElement.textContent = result.response;
     newText.innerHTML = result.response;
     outputText.appendChild(newText);
+    full = true;
 }
 
 const handle_chatbot = () => {
