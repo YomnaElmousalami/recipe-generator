@@ -24,17 +24,18 @@ const inputListener = (message, class_name) =>{
 }
 
 const generateMessage = async (thinking) =>{
-    const responseElement = thinking.querySelector("p");
-
-    const response = await fetch({
+    const responseElement = thinking.querySelector("p.entry_message span.entry_text");
+    const response = await fetch("/generateText", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ text: userMessage }),
+        body: JSON.stringify({ text: userMessage })
     });
     
-    responseElement.textContent = await response.json();
+    const result = await response.json();
+    responseElement.textContent = result.response;
+    
 }
 
 const handle_chatbot = () => {
