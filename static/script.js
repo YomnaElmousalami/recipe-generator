@@ -1,6 +1,7 @@
 const input = document.querySelector(".input textarea");
 const send_button = document.querySelector(".input span");
 const chatbox = document.querySelector(".chatbox");
+const outputText = document.querySelector(".recipe_text");
 
 let userMessage;
 
@@ -24,6 +25,7 @@ const inputListener = (message, class_name) =>{
 }
 
 const generateMessage = async (thinking) =>{
+    const newText = document.createElement("p");
     const responseElement = thinking.querySelector("p.entry_message span.entry_text");
     const response = await fetch("/generateText", {
         method: "POST",
@@ -34,13 +36,15 @@ const generateMessage = async (thinking) =>{
     });
     
     const result = await response.json();
-    responseElement.textContent = result.response;
 
     if (!response.ok) 
     {
         throw new Error(data.error.message);
     }
-    
+
+    responseElement.textContent = result.response;
+    newText.innerHTML = result.response;
+    outputText.appendChild(newText);
 }
 
 const handle_chatbot = () => {
