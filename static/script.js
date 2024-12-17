@@ -12,7 +12,7 @@ const inputListener = (message, class_name) =>{
     //before colon: appends user message 
     //after colon: generates bot's response
 
-    let content = class_name === "begin_chat" ? `<p>${message}<br></p>` :  
+    let content = class_name === "begin_chat" ? `<p>${message}</p>` :  
     `<span id = "query" class = "logo"> 
     <p class = "entry_message"> 
         <img src = "https://attic.sh/iiq017aushlxw6gd3e2mqziazci2" class = "icon_entry" alt = "Logo"> 
@@ -67,3 +67,10 @@ const handle_chatbot = () => {
 
 //when the send button is clicked, handle_chatbot function will be run
 send_button.addEventListener("click", handle_chatbot);
+
+document.getElementById("enter").addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        // Triggering click event on button when Enter key is pressed
+        document.getElementById("send").click();
+    }
+});
