@@ -12,7 +12,7 @@ const inputListener = (message, class_name) =>{
     //before colon: appends user message 
     //after colon: generates bot's response
 
-    let content = class_name === "begin_chat" ? `<p>${message}</p>` :  
+    let content = class_name === "begin_chat" ? `<p>${message}<br></p>` :  
     `<span id = "query" class = "logo"> 
     <p class = "entry_message"> 
         <img src = "https://attic.sh/iiq017aushlxw6gd3e2mqziazci2" class = "icon_entry" alt = "Logo"> 
@@ -35,7 +35,7 @@ const generateMessage = async (thinking) =>{
     
     const result = await response.json();
     responseElement.textContent = result.response;
-    
+
     if (!response.ok) 
     {
         throw new Error(data.error.message);
