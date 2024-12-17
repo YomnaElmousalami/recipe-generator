@@ -35,6 +35,10 @@ const generateMessage = async (thinking) =>{
     
     const result = await response.json();
     responseElement.textContent = result.response;
+    if (!response.ok) 
+    {
+        throw new Error(data.error.message);
+    }
     
 }
 
