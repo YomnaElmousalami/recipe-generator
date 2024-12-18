@@ -118,3 +118,8 @@ body{
   font-size: 26px;
   background-color: #e9def7;
 }
+
+#audio_file
+{
+  transform: translateX(80px);
+}
