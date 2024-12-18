@@ -86,13 +86,12 @@ const handle_audio = async() =>{
         body: JSON.stringify({ html: recipeElement })
     });
     
-    const result = await response.blob(); //OpenAI(2024), blob is a binary object, which can be used for html files
+    const result = await response.blob(); //blob is a binary object, which can be used for html files
     if (!response.ok) 
     {
         throw new Error(data.error.message);
     }
 
-    //lines 96-99 with OpenAI(2024) assistance
     const audio = URL.createObjectURL(result); //create audio url
     document.getElementById('audio_file').src = audio;
     document.getElementById('audio_file').controls = true;
