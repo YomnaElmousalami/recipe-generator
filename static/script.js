@@ -2,8 +2,10 @@ const input = document.querySelector(".input textarea");
 const send_button = document.querySelector(".input span");
 const chatbox = document.querySelector(".chatbox");
 const outputText = document.querySelector(".recipe_text");
+const audio_button = document.querySelector(".audio_button");
 
 let userMessage;
+let recipeElement;
 
 //this function creates a list item element and adds it based on the html tag
 const inputListener = (message, class_name) =>{
@@ -50,6 +52,7 @@ const generateMessage = async (thinking) =>{
     responseElement.textContent = result.response;
     newText.innerHTML = result.response;
     outputText.appendChild(newText);
+    recipeElement = outputText.outerHTML;
     full = true;
 }
 
@@ -76,9 +79,35 @@ const handle_chatbot = () => {
     }, 200);
 }
 
+const handle_audio = async() =>{
+    const response = await fetch("/retrieveText", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ html: recipeElement })
+    });
+    
+    const result = await response.blob(); //blob is a binary object, which can be used for html files
+    if (!response.ok) 
+    {
+        throw new Error(data.error.message);
+    }
+
+    const audio = URL.createObjectURL(result); //create audio url
+    document.getElementById('audio_file').src = audio;
+    document.getElementById('audio_file').controls = true;
+    document.getElementById('audio_file').href = document.getElementById('audio_file').src;
+}
+
 //when the send button is clicked, handle_chatbot function will be run
 send_button.addEventListener("click", handle_chatbot);
 
+//when the audio button is clicked, the handle_audio function will be run
+audio_button.addEventListener("click", handle_audio);
+
+//when enter button is clicked after user types message in the text box, it will be as if the send 
+//logo is clicked
 document.getElementById("enter").addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
