@@ -102,7 +102,7 @@ body{
 .recipe_text
 {
   background-color: white;
-  height: 690px;
+  height: 600px;
   width: 1000px;
   transform: translate(850px, -700px);
   font-size: 30px;
@@ -112,7 +112,9 @@ body{
 
 .audio_button
 {
-  transform: translate(1300px);
-  padding: 20px;
-  font-size: 16px;
+  transform: translate(1145px, -80px);
+  padding: 20px 130px 20px 130px;
+  border-radius: 25px;
+  font-size: 26px;
+  background-color: #e9def7;
 }
