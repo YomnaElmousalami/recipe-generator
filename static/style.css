@@ -43,7 +43,7 @@ body{
   overflow-y: auto;
 }
 
-.chatbot .chatbox{
+.chatbot .ai_chat{
   height: 510px;
   overflow-y: auto;
   padding: 15px 20px 70px;
@@ -52,7 +52,7 @@ body{
   flex-direction: column;
 }
 
-.chatbox .entry_message{
+.ai_chat .entry_message{
   display: flex;
   align-items: center;
   transform: translate(-15px, -20px);
@@ -64,11 +64,11 @@ body{
   border-radius: 15px 15px 15px 0px;
 }
 
-.chatbox .entry_message img{
+.ai_chat .entry_message img{
   display: inline;
 }
 
-.chatbox .begin_chat p{
+.ai_chat .begin_chat p{
   background-color: #e9def7;
   float: right;
   justify-content: flex-end;

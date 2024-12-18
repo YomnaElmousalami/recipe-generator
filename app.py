@@ -36,8 +36,7 @@ def retrieve_text():
     soup = BeautifulSoup(html_content, "html.parser")
     recipe_text = soup.get_text()
     language = 'en' 
-    # slow=False. (the converted audio should 
-    # have a high speed)
+    # slow=False. (the converted audio should have a high speed)
     myobj = gTTS(text=recipe_text, lang=language, slow=False)
     
     name = "recipe.mp3"

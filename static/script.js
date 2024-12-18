@@ -1,6 +1,6 @@
 const input = document.querySelector(".input textarea");
 const send_button = document.querySelector(".input span");
-const chatbox = document.querySelector(".chatbox");
+const ai_chat = document.querySelector(".ai_chat");
 const outputText = document.querySelector(".recipe_text");
 const audio_button = document.querySelector(".audio_button");
 
@@ -27,13 +27,13 @@ const inputListener = (message, class_name) =>{
 }
 
 let full = false;
-const generateMessage = async (thinking) =>{
+const generateMessage = async (newMessage) =>{
     if (full)
     {
         outputText.querySelector("p").remove();
     }
     const newText = document.createElement("p");
-    const responseElement = thinking.querySelector("p.entry_message span.entry_text");
+    const responseElement = newMessage.querySelector("p.entry_message span.entry_text");
     const response = await fetch("/generateText", {
         method: "POST",
         headers: {
@@ -69,14 +69,12 @@ const handle_chatbot = () => {
 
     //when the user enters a message, the inputListener will be run and whatever is returned
     //gets appended to the chatbox
-    chatbox.appendChild(inputListener(userMessage, "begin_chat"));
+    ai_chat.appendChild(inputListener(userMessage, "begin_chat"));
 
-    //the AI bot will display "Thinking" before generating message
-    setTimeout(() => {
-        const thinking = inputListener("Thinking...", "automatic_message");
-        chatbox.appendChild(thinking);
-        generateMessage(thinking);
-    }, 200);
+    //the AI bot will display an empty message before generating a new message
+    const newMessage = inputListener("", "automatic_message");
+    ai_chat.appendChild(newMessage);
+    generateMessage(newMessage);
 }
 
 const handle_audio = async() =>{
@@ -88,13 +86,13 @@ const handle_audio = async() =>{
         body: JSON.stringify({ html: recipeElement })
     });
     
-    const result = await response.blob(); //OpenAI(2024) //blob is a binary object, which can be used for html files
+    const result = await response.blob(); //OpenAI(2024), blob is a binary object, which can be used for html files
     if (!response.ok) 
     {
         throw new Error(data.error.message);
     }
 
-    //(OpenAI, 2024)
+    //lines 96-99 with OpenAI(2024) assistance
     const audio = URL.createObjectURL(result); //create audio url
     document.getElementById('audio_file').src = audio;
     document.getElementById('audio_file').controls = true;
