@@ -35,14 +35,12 @@ def retrieve_text():
     # Convert HTML to plain text
     soup = BeautifulSoup(html_content, "html.parser")
     recipe_text = soup.get_text()
-    language = 'en' #english
+    language = 'en' 
     # slow=False. (the converted audio should 
     # have a high speed)
     myobj = gTTS(text=recipe_text, lang=language, slow=False)
     
-    name = "welcome.mp3"
-    # Saving the converted audio in a mp3 file named
-    # welcome 
+    name = "recipe.mp3"
     myobj.save(name)
     return send_file(name, mimetype="audio/mpeg", as_attachment=False)
     
