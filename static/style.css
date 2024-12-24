@@ -121,5 +121,6 @@ body{
 
 #audio_file
 {
-  transform: translateX(80px);
+  transform: translate(1600px, -140px);
+  width: 240px;
 }
