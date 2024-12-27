@@ -6,6 +6,9 @@ from text_generation import generate_message
 from bs4 import BeautifulSoup
 from gtts import gTTS
 import os
+import torch
+from diffusers import DiffusionPipeline, DPMSolverMultistepScheduler
+from diffusers.utils import export_to_video
 
 app = Flask(__name__)
 
@@ -42,7 +45,6 @@ def retrieve_text():
     name = "recipe.mp3"
     myobj.save(name)
     return send_file(name, mimetype="audio/mpeg", as_attachment=False)
-    
 
 if __name__ == "__main__":
     app.run(debug=True)
