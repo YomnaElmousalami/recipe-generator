@@ -10,8 +10,7 @@ h1 {
   font-size: 30px;
 }
 
-.image {
-  max-width: 140px;
+.material-symbols-outlined {
   vertical-align: middle;
 }
 
@@ -62,6 +61,7 @@ body{
   background-color: #bed9e4;
   padding: 20px; 
   border-radius: 15px 15px 15px 0px;
+  transform: translateX(10px);
 }
 
 .ai_chat .entry_message img{

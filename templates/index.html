@@ -6,12 +6,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block" />
 <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 
 </head>
 <body>
  
-<h1> Insta Chef <img src = "https://attic.sh/iiq017aushlxw6gd3e2mqziazci2" class = "image"> </h1>
+<h1> Insta Chef <span class="material-symbols-outlined" style="font-size:60px">skillet</span></h1>
 <p class = "avatar">Welcome to Insta Chef! Here you can retrieve recipes instantly without needing to search the internet for hours!</p>
 <br>
 
@@ -20,7 +21,7 @@
     <li class = "automatic_message">
         <span id = "query" class = "logo"> 
             <p class = "entry_message"> 
-                <img src = "https://attic.sh/iiq017aushlxw6gd3e2mqziazci2" class = "icon_entry" alt = "Logo"> 
+                <span class="material-symbols-outlined" style="font-size:40px">mood</span>
                 <span class = "entry_text">Hi, How can I help you?</span>
             </p>
         </span>
@@ -30,7 +31,7 @@
 <div class = "input">
     <textarea id = "enter" placeholder = "Enter message" required></textarea>
     <span id = "send" class = "send_logo">
-        <img src = "https://cdn.iconscout.com/icon/free/png-256/free-send-icon-download-in-svg-png-gif-file-formats--sent-share-transfer-ui-basic-pack-user-interface-icons-2082560.png"></img>
+        <span class="material-symbols-outlined" style="transform: translate(540px, -15px); font-size:60px">send</span>
     </span>
 </div>
 

@@ -18,7 +18,7 @@ const inputListener = (message, class_name) =>{
     let content = class_name === "begin_chat" ? `<p>${message}</p>` :  
     `<span id = "query" class = "logo"> 
     <p class = "entry_message"> 
-        <img src = "https://attic.sh/iiq017aushlxw6gd3e2mqziazci2" class = "icon_entry" alt = "Logo"> 
+        <span class="material-symbols-outlined" style="font-size:40px;">mood</span> 
         <span class = "entry_text">${message}</span>
     </p>
    </span>`;
