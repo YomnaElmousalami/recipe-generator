@@ -17,7 +17,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/generateText", methods = ["POST"]) #when user generates method, this will run
+@app.route("/generateText", methods = ["POST"]) 
 def generate_text():
     data = request.json
     text = data.get("text")
@@ -44,7 +44,9 @@ def retrieve_text():
     
     name = "recipe.mp3"
     myobj.save(name)
-    return send_file(name, mimetype="audio/mpeg", as_attachment=False)
+    return send_file(name, mimetype="audio/mpeg", as_attachment=False) 
+
+#@app.route("/generateVideo", methods = ["POST"]) #when user clicks generate video button
 
 if __name__ == "__main__":
     app.run(debug=True)
