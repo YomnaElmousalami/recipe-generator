@@ -112,7 +112,7 @@ body{
 
 .audio_button
 {
-  transform: translate(930px, -80px);
+  transform: translate(1145px, -80px);
   padding: 20px 130px 20px 130px;
   border-radius: 25px;
   font-size: 26px;
@@ -123,12 +123,4 @@ body{
 {
   transform: translate(1600px, -140px);
   width: 240px;
-}
-
-.video_button{
-  transform: translate(900px, -80px);
-  padding: 20px 130px 20px 130px;
-  border-radius: 25px;
-  font-size: 26px;
-  background-color: #e9def7;
 }

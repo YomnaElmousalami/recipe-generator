@@ -3,7 +3,6 @@ const send_button = document.querySelector(".input span");
 const ai_chat = document.querySelector(".ai_chat");
 const outputText = document.querySelector(".recipe_text");
 const audio_button = document.querySelector(".audio_button");
-const video_button = document.querySelector(".video_button");
 
 let userMessage;
 let recipeElement;
@@ -99,36 +98,11 @@ const handle_audio = async() =>{
     document.getElementById('audio_file').href = document.getElementById('audio_file').src;
 }
 
-const handle_video = async() =>{
-    const response = await fetch("/generateVideo", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ html: recipeElement })
-    });
-
-    const result = await response.blob(); //blob is a binary object, which can be used for html files
-    if (!response.ok) 
-    {
-        throw new Error(data.error.message);
-    }
-
-    
-    const video = URL.createObjectURL(result); //create audio url
-    document.getElementById('video_file').src = video;
-    document.getElementById('video_file').controls = true;
-    document.getElementById('video_file').href = document.getElementById('video_file').src;
-}
-
 //when the send button is clicked, handle_chatbot function will be run
 send_button.addEventListener("click", handle_chatbot);
 
 //when the audio button is clicked, the handle_audio function will be run
 audio_button.addEventListener("click", handle_audio); 
-
-//when the video button is clicked, the handle_video function will be run
-video_button.addEventListener("click", handle_video);
 
 //when enter button is clicked after user types message in the text box, it will be as if the send 
 //logo is clicked
