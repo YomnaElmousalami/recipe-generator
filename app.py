@@ -46,7 +46,23 @@ def retrieve_text():
     myobj.save(name)
     return send_file(name, mimetype="audio/mpeg", as_attachment=False) 
 
-#@app.route("/generateVideo", methods = ["POST"]) #when user clicks generate video button
+
+@app.route("/generateVideo", methods = ["POST"]) #when user clicks generate video button
+def generate_video():
+    data = request.json
+
+    pipe = DiffusionPipeline.from_pretrained("ali-vilab/text-to-video-ms-1.7b", torch_dtype = torch.float16, variant="fp16")
+    pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
+    pipe.enable_model_cpu_offload()
+    
+    html_content = data.get("html", "")
+    # Convert HTML to plain text
+    soup = BeautifulSoup(html_content, "html.parser")
+    prompt = soup.get_text()
+    video_frames = pipe(prompt, num_inference_steps = 25).frames
+    video_path = export_to_video(video_frames[0])
+    torch.cuda.empty_cache()
+    return {"url": video_path}
 
 if __name__ == "__main__":
     app.run(debug=True)
